@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/4fb7f61c26.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <style>
+        body{
+            margin: 0px;
+        }
+    .total-page{
+        background-image: url('https://img.pikbest.com/wp/202405/space-rendering-3d-of-a-yellow-background-for-education-with-ample-text_9847068.jpg!bw700');
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        flex-direction: column;
+    }
+    .main-calculator{
+        background-color: transparent;
+        width: 37vh;
+        padding: 20px;
+        border-radius: 10px;
+        align-self: flex-start;
+        box-shadow: 0 0 15px black;
+        text-align:center;
+        margin-left: 25vh;
+        margin-top: -10vh;
+        width: 45vh;
+    }
+    .input-value{
+        display: flex;
+        flex-direction: column;
+    }
+    .each-value,.operation{
+        background-color:transparent;
+        border-radius: 30px;
+        width: 45px;
+        height: 45px;
+        margin-left: 7px;
+        margin-bottom: 7px;
+        font-size: 20px;
+        font-weight: bold;
+        border: 1px dotted rgb(241, 241, 89);
+        box-shadow: 0px 0px 8px black;
+    }
+    .each-value:hover, .operation:hover{
+        background-color: lightyellow;
+        width: 40px;
+        height: 40px;
+    }
+    .operation{
+        background-color: transparent;
+    }
+    .output-value{
+        background-color: transparent;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        box-sizing: border-box;
+        height: 10vh;
+        border: 1px solid rgb(241, 241, 89);
+        display: flex;
+        align-items: center;
+        box-shadow: 0px 0px 8px black;
+    }
+    .output-value:hover{
+        height: 12vh;
+        background-color: lightyellow;
+    }
+    .Reviews{
+        text-decoration: underline;
+        align-self: flex-end;
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 25px;
+        border: 0;
+        background-color: transparent;
+    }
+    .top{
+        font-size: 23px;
+        font-weight: bold;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-decoration: overline;
+    }
+    .side-bar{
+        align-self: flex-end;
+        margin-right: 25vh;
+        display: flex;
+    }
+    </style>
+</head>
+<body>
+    <div class="total-page">
+        <p id="top-name" class="top"></p>
+        <div class="side-bar">
+            <button type="button" class="Reviews" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                Reviews
+            </button>
+            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Waiting for Your FeedBack!!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="user-review"/>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="send-button">Send</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <button type="button" class="Reviews" data-bs-toggle="modal" data-bs-target="#exampleModal" id="view-button">
+                View
+            </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">My Reviews!!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="all-reviews"></p>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-calculator">
+            <h1>My Calc</h1>
+            <div class="output-value">
+                <p id="solution"></p>
+            </div>
+            <div class="input-value">
+                <div>
+                    <button class="each-value operation" id="ac">AC</button>
+                    <button class="each-value operation" id="%">%</button>
+                    <button class="each-value operation" id="=">=</button>
+                    <button class="each-value operation" id="wrong">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </button>
+                </div>
+                <div>
+                    <button class="each-value" id="7">7</button>
+                    <button class="each-value" id="8">8</button>
+                    <button class="each-value" id="9">9</button>
+                    <button class="each-value operation" id="+">+</button>
+                </div>
+                <div>
+                    <button class="each-value" id="4">4</button>
+                    <button class="each-value" id="5">5</button>
+                    <button class="each-value" id="6">6</button>
+                    <button class="each-value operation" id="-">-</button>
+                </div>
+                <div>
+                    <button class="each-value" id="1">1</button>
+                    <button class="each-value" id="2">2</button>
+                    <button class="each-value" id="3">3</button>
+                    <button class="each-value operation" id="X">X</button>
+                </div>
+                <div>
+                    <button class="each-value" id="0">0</button>
+                    <button class="each-value" id="00">00</button>
+                    <button class="each-value" id=".">.</button>
+                    <button class="each-value operation" id="/">/</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            let solution = document.getElementById("solution");
+            let result = "";
+            let top_name = document.getElementById("top-name"); 
+
+            let one = document.getElementById("1");
+            let two = document.getElementById("2");
+            let three = document.getElementById("3");
+            let four = document.getElementById("4");
+            let five = document.getElementById("5");
+            let six = document.getElementById("6");
+            let seven = document.getElementById("7");
+            let eight = document.getElementById("8");
+            let nine = document.getElementById("9");
+            let zero = document.getElementById("0");
+            let doubleZero = document.getElementById('00');
+            let dot = document.getElementById('.');
+
+            let plus = document.getElementById("+");
+            let minus = document.getElementById("-");
+            let mul = document.getElementById('X');
+            let div = document.getElementById("/");
+            let percent = document.getElementById("%");
+            let equalsTo = document.getElementById('=');
+            let wrong = document.getElementById('wrong');
+            let clear = document.getElementById('ac');
+
+            let review = document.getElementById('user-review');
+            let view = document.getElementById('view-button');
+            let allReviews = document.getElementById('all-reviews');
+
+            one.onclick = function(){
+                result+="1";
+                solution.textContent = result;
+            }
+            two.onclick = function(){
+                result+="2";
+                solution.textContent = result;
+            }
+            three.onclick = function(){
+                result+="3";
+                solution.textContent = result;
+            }
+            four.onclick = function(){
+                result+="4";
+                solution.textContent = result;
+            }
+            five.onclick = function(){
+                result+="5";
+                solution.textContent = result;
+            }
+            six.onclick = function(){
+                result+="6";
+                solution.textContent = result;
+            }
+            seven.onclick = function(){
+                result+="7";
+                solution.textContent = result;
+            }
+            eight.onclick = function(){
+                result+="8";
+                solution.textContent = result;
+            }
+            nine.onclick = function(){
+                result+="9";
+                solution.textContent = result;
+            }
+            zero.onclick = function(){
+                result+="0";
+                solution.textContent = result;
+            }
+            doubleZero.onclick = function(){
+                result+="00";
+                solution.textContent = result;
+            }
+            dot.onclick = function(){
+                result+=".";
+                solution.textContent = result;
+            }
+            plus.onclick = function(){
+                result = result+" "+'+'+" ";
+                solution.textContent = result;
+            }
+            minus.onclick = function(){
+                result = result+" "+'-'+" ";
+                solution.textContent = result;
+            }
+            mul.onclick = function(){
+                result = result+" "+'*'+" ";
+                solution.textContent = result;
+            }
+            div.onclick = function(){
+                result = result+" "+'/'+" ";
+                solution.textContent = result;
+            }
+            percent.onclick = function(){
+                result = result+" "+"%"+" ";
+                solution.textContent = result;
+            }
+            equalsTo.onclick = function(){
+                try{
+                    result = eval(result);
+                    solution.textContent = result;
+                }catch(error){
+                    console.error(error.message);
+                    alert("Got An Error: ", error.message);
+                }
+            }
+            wrong.onclick = function(){
+                try{
+                    let resultArray = result.split(' ');
+                    let length = resultArray.length;
+                    console.log(length);
+                    resultArray = resultArray.slice(0,length-1);
+                    result = resultArray.join(" ");
+                    solution.textContent = result;
+                }catch{
+                    alert("There might be some issues!")
+                }
+            }
+            clear.onclick = function(){
+                if(solution.textContent === " "){
+                    alert("Nothing to be Cleared");
+                }else{
+                    solution.textContent = " ";
+                    result = " ";
+                }
+            }
+
+            let user = localStorage.getItem("username");
+            top_name.textContent = "Hey, Welcome "+ user;
+
+            let sendButton = document.getElementById('send-button');
+            sendButton.onclick = function(){
+                if(review.value!==""){
+                    let tempReview = localStorage.getItem("review");
+                    let temp2 = tempReview+"<br>"+review.value;
+                    localStorage.setItem("review", temp2);
+                    
+                }else{
+                    alert("Empty Review!");
+                }
+            }
+            view.onclick = function () {
+                let tempArray = localStorage.getItem("review");
+                allReviews.innerHTML = tempArray;
+            }
+        </script>
+    </div>
+</body>
+</html>
