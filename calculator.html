@@ -315,9 +315,13 @@
             sendButton.onclick = function(){
                 if(review.value!==""){
                     let tempReview = localStorage.getItem("review");
-                    let temp2 = tempReview+"<br>"+review.value;
-                    localStorage.setItem("review", temp2);
-                    
+                    if(tempReview!==null){
+                        let temp2 = tempReview+"<br>"+review.value;
+                        localStorage.setItem("review", temp2);
+                    }else{
+                        let temp2 = review.value;
+                        localStorage.setItem("review", temp2);
+                    }
                 }else{
                     alert("Empty Review!");
                 }
@@ -328,6 +332,7 @@
                     allReviews.innerHTML = "Not Given Any Review!";
                 }else{
                     allReviews.innerHTML = tempArray;
+                }
             }
         </script>
     </div>
