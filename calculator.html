@@ -312,6 +312,7 @@
             top_name.textContent = "Hey, Welcome "+ user;
 
             let sendButton = document.getElementById('send-button');
+            localStorage.setItem("review", "Hey!!");
             sendButton.onclick = function(){
                 if(review.value!==""){
                     let tempReview = localStorage.getItem("review");
