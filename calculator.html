@@ -323,10 +323,12 @@
                 }
             }
             view.onclick = function () {
-                /*let tempArray = localStorage.getItem("review");
-                allReviews.innerHTML = tempArray;*/
+                let tempArray = localStorage.getItem("review");
+                if(tempArray === null){
+                    allReviews.innerHTML = "Not Given Any Review!";
+                }else{
+                    allReviews.innerHTML = tempArray;
             }
-            localStorage.removeItem("review");
         </script>
     </div>
 </body>
