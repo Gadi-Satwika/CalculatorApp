@@ -1,10 +1,3 @@
-This is the second project as part of my internship at skillCraftTechnology.
-
-This is a calculator, where the user can calculate all basic operations that we do.
-User can review the page, in the option in the web page and user can view the reviews that are given to my webpage.
-
-
----
 
 ### ✅ 2. **Calculator**
 
@@ -26,4 +19,10 @@ A basic calculator that performs arithmetic operations with a neat and responsiv
 
 ## 📸 Preview
 
+https://gadi-satwika.github.io/SCT_WD_2/
 
+📝 Notes
+Great for learning basic DOM manipulation and event handling in JavaScript.
+
+📬 Contact
+Feel free to reach out at satwikagadi2005@gmail.com
