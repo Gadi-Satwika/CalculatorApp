@@ -1,7 +1,5 @@
 
-### ✅ 2. **Calculator**
-
-# Calculator Web App(TASK2)
+# Calculator Web App
 
 A basic calculator that performs arithmetic operations with a neat and responsive UI. Built during my internship at Skill Craft Technology.
 
@@ -19,7 +17,7 @@ A basic calculator that performs arithmetic operations with a neat and responsiv
 
 ## 📸 Preview
 
-https://gadi-satwika.github.io/SCT_WD_2/
+ https://gadi-satwika.github.io/CalculatorApp/
 
 📝 Notes
 Great for learning basic DOM manipulation and event handling in JavaScript.
